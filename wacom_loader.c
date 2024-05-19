@@ -8,7 +8,7 @@
 #include <unistd.h>
 
 // Loader configuration
-#define ENVIRONMENT_PATH "/usr/bin"
+#define ENVIRONMENT_PATH "/bin"
 #define KERNEL_MODULE_NAME "wacom"
 #define KERNEL_MODULE_LOADER "modprobe"
 #define KERNEL_MODULE_UNLOADER "rmmod"
