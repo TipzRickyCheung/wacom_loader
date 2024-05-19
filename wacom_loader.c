@@ -8,6 +8,7 @@
 #include <unistd.h>
 
 // Loader configuration
+#define ENVIRONMENT_PATH "/usr/bin"
 #define KERNEL_MODULE_NAME "wacom"
 #define KERNEL_MODULE_LOADER "modprobe"
 #define KERNEL_MODULE_UNLOADER "rmmod"
@@ -19,13 +20,18 @@
 int main()
 {
     int ret = 0;
-
-    FILE *fd = popen("lsmod | grep wacom", "r");
     char buf[127];
-    bool module_loaded = fread(buf, 1, sizeof (buf), fd) > 0;
 
     // Store a copy of uid for restoring later
     int uid = getuid();
+
+    // Use modprobe only from specified path
+    snprintf(buf, sizeof(buf), "PATH=%s", ENVIRONMENT_PATH);
+    putenv(buf);
+
+    // Check for wacom kernel module
+    FILE *fd = popen("lsmod | grep wacom", "r");
+    bool module_loaded = fread(buf, 1, sizeof (buf), fd) > 0;
 
     // Raise user privileges to root and execute loader/unloader
     setuid(0);
