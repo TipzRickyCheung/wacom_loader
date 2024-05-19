@@ -33,7 +33,7 @@ int main()
              module_loaded ? KERNEL_MODULE_UNLOADER : KERNEL_MODULE_LOADER, KERNEL_MODULE_NAME);
     ret = system(buf);
 
-    if (ret == -1) {
+    if (ret) {
         printf("Failed to load/unload kernel module %s\n", KERNEL_MODULE_NAME);
         return ret;
     }
