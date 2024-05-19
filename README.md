@@ -12,6 +12,12 @@ To install this program, run in a terminal:
 
 The proper privileges the program requires are automatically set. It is up to the user to hook it up with their DEs' shortcut system.
 
+## Improvements
+
+This program should be wired up to utilities provided by your distro so that root privileges are granted correctly and cannot be used for privileage esculation.
+
+While effort has been taken to try and secure this program, it is advised that users install this program at their own risk.
+
 ## Further read
 
 [Original bug report thread](https://github.com/linuxwacom/input-wacom/issues/342)
