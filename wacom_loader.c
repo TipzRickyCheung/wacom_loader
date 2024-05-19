@@ -27,7 +27,7 @@ int main()
     // Store a copy of uid for restoring later
     int uid = getuid();
 
-    // Raise user privillages to root and execute loader/unloader
+    // Raise user privileges to root and execute loader/unloader
     setuid(0);
     snprintf(buf, sizeof(buf), "%s %s",
              module_loaded ? KERNEL_MODULE_UNLOADER : KERNEL_MODULE_LOADER, KERNEL_MODULE_NAME);
@@ -38,7 +38,7 @@ int main()
         return ret;
     }
 
-    // Restore original uid to drop user privillages
+    // Restore original uid to drop user privileges
     setuid(uid);
 
     // Show results
